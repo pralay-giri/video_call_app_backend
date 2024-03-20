@@ -6,7 +6,7 @@ const app = express();
 
 app.use(
     cors({
-        origin: "*",
+        origin: process.env.FRONTEND_URL,
         methods: ["GET", "POST"],
     })
 );
@@ -19,7 +19,7 @@ const server = app.listen(process.env.PORT || 8000, () => {
 
 const io = new Server(server, {
     cors: {
-        origin: "*",
+        origin: "process.env.FRONTEND_URL",
     },
 });
 
